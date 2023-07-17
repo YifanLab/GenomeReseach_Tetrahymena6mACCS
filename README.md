@@ -195,7 +195,7 @@ nohup cat sm.ateithergt3.5.id  brdu0.Nclu_both.id | sort |uniq |perl ../filtersm
 
 nohup python3.8 /project/yalidou_405/Pacbio_pipeline/YifanLab-main/Brdu_CCS/countAarray.py brdu0.allA.filterstrict.csv brdu0filter 2>err.log&
 
-/project/xwang787_675/wentaoy_tools/miniconda3/bin/time -o runsbatchpararun.time -f "Program: %C\nTotal time: %E\nUser Mode: %U\nKernel Mode: %S\nCPU: %U"   parallel -j 60  -a ./runipdsd_all.sh
+parallel -j 60  -a ./runipdsd_all.sh
 
 
 
