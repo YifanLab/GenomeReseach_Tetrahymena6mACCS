@@ -6,9 +6,17 @@
 	. Python (>=3.8) with pysam (>=0.15.4), numpy(>=1.18.1), pandas, statsmodel, and statistics libraries.
 
 
-# calculate IPD ratio from raw subread
+# How to use it?
+## calculate IPD ratio from raw subread
 	Usage: python3.8 pacbiomethy_withoutref.py raw.subreads.bam -t 16
  		input: raw.subreads.bam
    		-t: thread
 
- 
+## calculate SD and Nstar for each single molecule
+	cat sb210.subreadextractec.xls |perl -ne 'chomp;@ar=split(/\t/,$\_);if($ar\[1\]>=30){$ar[0]=~s#/#_#g;print "perl sdcal_foreachzmw.pl ipd_csv/$ar\[0\].csv >allipdsd.xls\n" >ipdsd_ecgt30x_files.sh
+
+	sh ipdsd_ecgt30x_files.sh
+
+	 cat subreads.gt30_allid_Nstar_all.id sb210_sdlt0.35.30x.id |sed 's/"//g'|sort|uniq |cat ecgt30.id -|sort |uniq -c|grep '      1 '|sed 's/      1 //' >sb210_sdlt0.35.30x.Nstar.final.id
+
+	
