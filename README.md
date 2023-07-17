@@ -1,4 +1,4 @@
-# Processing raw Pacbio subread.bam#
+# Processing raw Pacbio subread.bam
 
 python3.8 pacbiomethy_withoutref.py raw.subreads.bam -t 16
 
