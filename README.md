@@ -109,6 +109,10 @@ perl /project/yalidou_405/Pacbio_pipeline/YifanLab-main/mll1_seq2/blast_mapping/
 
 cat fulmac.id partialmac.filterfull.id >mac.final.id
 
+perl gettargetcsv.pl mac.final.id subreads.gt30x.allA.csv >subreads.gt30.mac.allA.csv
+
+perl gettargetcsv.pl mac.final.id subreads.gt30x.allAT.csv >subreads.gt30.mac.allAT.csv
+
 ## Obtain IPD ratio distribution for all AX
 
 python3.8 countAarray.py
@@ -119,7 +123,16 @@ python3.8 m6A_axdistribution.py #output the threshold value >=2.38 for WT
 
 ## extract all 6mA sites
 
-cat subreads.gt30x.allAT.csv | perl -ne 'chomp;@ar=split(/,/,$_);if($ar\[-3\]>=2.38){print "$\_\n"}' >subread.gt30x.allAT.methyA.csv
+cat subreads.gt30x.mac.allAT.csv | perl -ne 'chomp;@ar=split(/,/,$_);if($ar\[-3\]>=2.38){print "$\_\n"}' >subread.gt30x.mac.allAT.methyA.csv
+
+
+# Determine dinucleotide AT status
+
+
+cat subreads.gt30x.mac.allAT.csv | perl -ne 'chomp;@ar=split(/,/,$_);if($ar\[2\]==0){print "$\_\n"}' > subreads.gt30x.mac.allAT_s0.csv
+
+cat subreads.gt30x.mac.allAT.csv | perl -ne 'chomp;@ar=split(/,/,$_);if($ar\[2\]==1){print "$\_\n"}' > subreads.gt30x.mac.allAT_s1.csv
+
 
 
 
