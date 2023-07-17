@@ -92,6 +92,10 @@ for i in `ls ./ambigu_filter/*.xls`; do echo "perl intro_onepoint.pl $i ";done >
 
 sh runintro1point.sh >all.1point.xls
 
+less all.1point.xls |perl -ne 'chomp;@ar=split(/\t/,$_);@ele=split(/\,/,$ar[1]);print "$ar[0]\t$ele[0]\n$ar[0]\t$ele[1]\n"'|sed 's/:/\t/g'|bedtools getfasta -fi ../ccs2genome.fasta -bed - -name >all1point.fa
+
+blast -query all1point.fa -num_threads 40  -db alltetraseq.fa  -word_size 50 -outfmt "6 qacc sacc length nident  mismatch gaps qstart qend sstart send qlen slen bitscore score evalue" > allintro1point_2alltetra.bnout
+
 cat allintro1point_2alltetra.bnout|grep mac|sort -k1,1 -k3,3nr|sort -k1,1 -u --merge|perl -ne 'chomp;@ar=split(/\t/,$_);if($ar[2]/$ar[10]>=0.95){print "$_\n"}' >allintro1point_2allmac.toplen.xls
 
 cat allintro1point_2allmac.toplen.xls mic1point.mapped2mac.id |cut -f 1|sort|uniq|cat allintro1point_2allmac.toplen.xls -|cut -f 1|sort|uniq >partialmac.id
