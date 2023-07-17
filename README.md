@@ -1,8 +1,8 @@
-#Processing raw Pacbio subread.bam#
+# Processing raw Pacbio subread.bam#
 
 python3.8 pacbiomethy_withoutref.py raw.subreads.bam -t 16
 
-###extract all IPD ratio values for base A###
+# extract all IPD ratio values for base A#
 
 #obtain effect coverage(ec) for each reads#
 
