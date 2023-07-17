@@ -41,7 +41,7 @@ cat sb210.subreadextractec.xls |perl -ne 'chomp;@ar=split(/\t/,$\_);if($ar\[1\]>
 
 sh ipdsd_ecgt30x_files.sh
 
-# Calculate N cluster in a single molecule
+# Determine N cluster in a single molecule
 
 cat subreads.gt30x.allAX.csv | grep -v ',A,'|perl -ne 'chomp;@ar=split(/,/,$_);if($ar\[2\]==0 and $ar\[8\]>=2.8){print "$\_\n"}' > subreads.gt30x.Nclu_s0.csv
 
