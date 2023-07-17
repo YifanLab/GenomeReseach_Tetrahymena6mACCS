@@ -1,2 +1,8 @@
-# This project includes all the scripts for data analysis in our paper
+# Pre-requisites:
 
+
+	SMRT LINK v10.1
+	
+	samtools
+
+ 
