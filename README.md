@@ -29,6 +29,6 @@ python3.8 m6A_axdistribution.py #output the threshold value >=2.38 for WT
 
 ## extract all 6mA sites
 
-cat subreads.gt30x.allAT.csv |perl -ne 'chomp;@ar=split(/,/,$_);if($ar[-3]>=2.38){print "$_\n"}' >subread.gt30x.allAT.methyA.csv
+cat subreads.gt30x.allAT.csv | perl -ne 'chomp;@ar=split(/,/,$_);if($ar\[-3\]>=2.38){print "$\_\n"}' >subread.gt30x.allAT.methyA.csv
 
 
