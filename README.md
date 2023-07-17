@@ -99,6 +99,12 @@ cat allintro1point_2allmac.toplen.xls mic1point.mapped2mac.id |cut -f 1|sort|uni
 
 perl match_mic2mac_samid.pl fullen_2allmac.toplen.xls fullen_2allmic.toplen.xls |perl -ne 'chomp;@ar=split(/\t/,$\_);$per=$ar\[-2\]/$ar\[-1\];print "$_\t$per\n"'|sort -k4n|perl -ne 'chomp;@ar=split(/\t/,$\_);if($ar\[-1\]>=0.98){print "$\_\n"}' >ful.mapped2mac.id
 
+cat ful.mapped2mac.id fullmacvsmic.overlap.id |cut -f 1|sort|uniq|cat fullen_2allmac.toplen.xls -|cut -f 1|sort|uniq >fulmac.id
+
+perl /project/yalidou_405/Pacbio_pipeline/YifanLab-main/mll1_seq2/blast_mapping/filterpartial.pl ful.all.id partialmac.id >partialmac.filterfull.id
+
+cat fulmac.id partialmac.filterfull.id >mac.final.id
+
 ## Obtain IPD ratio distribution for all AX
 
 python3.8 countAarray.py
