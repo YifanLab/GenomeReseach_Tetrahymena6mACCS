@@ -1,13 +1,9 @@
 # Pre-requisites:
 
-     	numpy
-       	pandas
-     	uuid
-	SMRT LINK v10.1
-	samtools
- 	statistics
-   	statsmodels
-  	python>=3.8
+	. SMRT LINK v10.1
+	. samtools
+	. perl
+	. Python (>=3.8) with pysam (>=0.15.4), numpy(>=1.18.1), pandas, statsmodel, and statistics libraries.
 
 
  
