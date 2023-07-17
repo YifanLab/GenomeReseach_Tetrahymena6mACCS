@@ -11,8 +11,11 @@ samtools view subread.hifi.bam|perl -ne 'chomp;@ar=split(/\t/,$_);for($i=0;$i<=$
 ## extract the ipd ratio values for reads with ec>=30
 
 cat sb210.subreadextractec.xls |perl -ne 'chomp;@ar=split(/\t/,$\_);if($ar\[1\]>=30){$ar[0]=~s#/#_#g;print "cat ipd_csv/$ar\[0\].csv\n" >cat_ecgt30x_files.sh
+
 sh cat_ecgt30_files.sh >subreads.gt30x.all.csv
+
 cat subreads.gt30x.all.csv|grep ',A,' > subreads.gt30x.allA.csv
+
 
 ## obtain dinucleotide sequence
 
