@@ -133,7 +133,13 @@ cat subreads.gt30x.mac.allAT.csv | perl -ne 'chomp;@ar=split(/,/,$_);if($ar\[2\]
 
 cat subreads.gt30x.mac.allAT.csv | perl -ne 'chomp;@ar=split(/,/,$_);if($ar\[2\]==1){print "$\_\n"}' > subreads.gt30x.mac.allAT_s1.csv
 
+perl formatAT2pointplot.pl subreads.gt30x.mac.allAT_s0.csv subreads.gt30x.mac.allAT_s1.csv >subreads.gt30x.mac.ATfor2Dplot.xls
 
+perl getATdinuc.pl subreads.gt30x.mac.allAT_s0.csv subreads.gt30x.mac.allAT_s1.csv >Cstrand_ipdratioDis.withWmethy.csv
+
+python3.8 countATarrayforonestrand.py 
+
+perl getATstatus.pl subreads.gt30x.mac.allAT_s0.csv subreads.gt30x.mac.allAT_s1.csv  >subread.AT.methystat.xls
 
 
 
