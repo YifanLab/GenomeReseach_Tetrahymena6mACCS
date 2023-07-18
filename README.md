@@ -7,6 +7,7 @@
 
 
 # How to use it?
+The command lines for each step were recorded in the cmd_reference.sh. Please refer to this file.
 ## calculate IPD ratio from raw subread
 	Usage: python3.8 pacbiomethy_withoutref.py raw.subreads.bam -t 16
  		input: raw.subreads.bam
