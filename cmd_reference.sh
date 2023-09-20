@@ -36,9 +36,9 @@ cat allipdsd.xls |egrep 'A|T'|grep -v all|perl -ne 'chomp;@ar=split(/\t/,$\_);if
 
 # Determine N cluster in a single molecule
 
-cat subreads.gt30x.allAX.csv | grep -v ',A,'|perl -ne 'chomp;@ar=split(/,/,$_);if($ar\[2\]==0 and $ar\[8\]>=2.8){print "$\_\n"}' > subreads.gt30x.Nclu_s0.csv
+cat subreads.gt30x.all.csv | grep -v ',A,'|perl -ne 'chomp;@ar=split(/,/,$_);if($ar\[2\]==0 and $ar\[8\]>=2.8){print "$\_\n"}' > subreads.gt30x.Nclu_s0.csv
 
-cat subreads.gt30x.allAX.csv | grep -v ',A,'|perl -ne 'chomp;@ar=split(/,/,$_);if($ar\[2\]==1 and $ar\[8\]>=2.8){print "$\_\n"}' > subreads.gt30x.Nclu_s1.csv
+cat subreads.gt30x.all.csv | grep -v ',A,'|perl -ne 'chomp;@ar=split(/,/,$_);if($ar\[2\]==1 and $ar\[8\]>=2.8){print "$\_\n"}' > subreads.gt30x.Nclu_s1.csv
 
 cat subreads.gt30x.Nclu_s0.csv | sed 's/,/\t/g'|perl detectcluster_inlimted_totaldis.pl - >subreads.gt30_allipd_Nstar_s0.xls
 
