@@ -30,6 +30,9 @@ cat subreads.gt30x.allAX.csv |grep AT > subreads.gt30x.allAT.csv
 
 cat sb210.subreadextractec.xls |perl -ne 'chomp;@ar=split(/\t/,$\_);if($ar\[1\]>=30){$ar[0]=~s#/#_#g;print "perl sdcal_foreachzmw.pl ipd_csv/$ar\[0\].csv >allipdsd.xls\n" >ipdsd_ecgt30x_files.sh
 
+#sd<=0.35#
+less allipdsd.xls | grep all|grep A|perl -ne 'chomp;@ar=split(/\t/,$\_);if($ar\[-3\]<=0.35){print "$_\n"}' |cut -f 1|sort|uniq >sb210_sdlt0.35.id
+
 sh ipdsd_ecgt30x_files.sh
 
 cat allipdsd.xls |egrep 'A|T'|grep -v all|perl -ne 'chomp;@ar=split(/\t/,$\_);if($ar\[6\]>=0.35){print "$_\n"}' >allipdsdgt3.5.all.id
